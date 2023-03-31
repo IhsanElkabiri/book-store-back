@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/books")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class LivreController {
     @Autowired
     private LivreService livreService;
@@ -26,7 +26,7 @@ public class LivreController {
     public Livre saveLivre(@RequestBody Livre livre){
         return livreService.createLivre(livre);
     }
-    @PutMapping
+    @PutMapping("/{id}")
     public Livre updateLivre(@RequestBody Livre livre){
         return livreService.updateLivre(livre);
     }
